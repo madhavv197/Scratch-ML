@@ -9,7 +9,7 @@ def demonstrate_knn():
     using generated datasets.
     """
     # Initialize data generator
-    generator = MLDataGenerator(random_state=42)
+    generator = MLDataGenerator()
     
     # Part 1: KNN Classification
     def demonstrate_classification():
@@ -50,8 +50,10 @@ def demonstrate_knn():
                                 np.arange(y_min, y_max, 0.02))
             
             # Predict for each point in the mesh
-            Z = knn.predict(np.c_[xx.ravel(), yy.ravel()])
+            Z = knn.predict(np.c_[xx.ravel(), yy.ravel()], p=1)
+            Z = np.array(Z, dtype=float)  # Force numeric type
             Z = Z.reshape(xx.shape)
+
             
             # Plot
             plt.subplot(1, 4, i)
@@ -105,7 +107,7 @@ def demonstrate_knn():
             
             # Create smooth line for predictions
             X_plot = np.linspace(0, 10, 500).reshape(-1, 1)
-            y_pred = knn.predict(X_plot)
+            y_pred = knn.predict(X_plot, p=1)
             
             # Plot
             plt.subplot(1, 4, i)

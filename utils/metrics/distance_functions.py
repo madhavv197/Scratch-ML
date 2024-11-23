@@ -3,7 +3,7 @@ import numpy as np
 ## minkowski distance can be both manhattan or euclidean distance depending on required use case!
 
 def minkowski_distance(x, y, p):
-    if x_1.shape != y_1.shape:
+    if x.shape != y.shape:
         raise ValueError("Points must have same shape")
     return np.power(np.sum(np.power(np.abs(x - y), p)), 1/p)
 
