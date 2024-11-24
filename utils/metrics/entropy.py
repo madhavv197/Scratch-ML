@@ -1,6 +1,6 @@
 import numpy as np
 def entropy(y):
-    counts = np.bincount(y)
-    p_counts = counts/len(y)
-    return -np.sum([p * np.log(p) for p in p_counts if p > 0])
+    _, counts = np.unique(y, return_counts=True)
+    probabilities = counts / len(y)
+    return -np.sum(probabilities * np.log2(probabilities))
 

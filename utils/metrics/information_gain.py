@@ -1,5 +1,5 @@
 import numpy as np
-from entropy import entropy
+from utils.metrics.entropy import entropy
 
 def information_gain(X_col, y, threshold):
     parent_entropy = entropy(y)
@@ -11,4 +11,7 @@ def information_gain(X_col, y, threshold):
 
     n = len(y)
     n_left, n_right = len(left_idx), len(right_idx)
-    
+    entropy_left, entropy_right = entropy(y[left_idx]), entropy(y[right_idx])
+    child_entropy = (n_left/n) * entropy_left + (n_right/n) * entropy_right
+
+    return parent_entropy - child_entropy
