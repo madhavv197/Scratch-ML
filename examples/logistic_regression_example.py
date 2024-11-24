@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from utils.data_generator import MLDataGenerator, DatasetInfo
-from classical.linear_models.logistic_regression import LogisticRegressor
+from foundational.linear_models.logistic_regression import LogisticRegressor
 
 def visualize_decision_boundary(X, y, model, ax):
     """Plot decision boundary and data points"""

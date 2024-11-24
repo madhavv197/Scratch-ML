@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from utils.data_generator import MLDataGenerator, DatasetInfo
-from classical.clustering.knn import KNN
+from foundational.clustering.knn import KNN
 
 def demonstrate_knn():
     """

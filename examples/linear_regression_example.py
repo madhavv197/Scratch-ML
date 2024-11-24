@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from utils.data_generator import MLDataGenerator, DatasetInfo
-from classical.linear_models.linear_regression import LinearRegressor
+from foundational.linear_models.linear_regression import LinearRegressor
 
 def visualize_learning_rates():
     # Generate dataset
