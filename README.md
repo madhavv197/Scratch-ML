@@ -2,7 +2,7 @@
 
 
 # About
-Scratch-ML is a personal project because I was tired of blindly using ML libraries without really getting what was happening under the hood. Instead of treating scikit-learn, PyTorch, and TensorFlow like magic boxes, I decided to rebuild everything from scratch using just NumPy. Each implementation here represents me figuring out how these algorithms actually work, rather than just calling model.fit() and hoping for the best.
+Scratch-ML is a personal project I made, because I was using ML libraries blindly without really understanding what was happening. I decided to rebuild everything from scratch using just NumPy. Each implementation here is me figuring out how these algorithms actually work, rather than just calling model.fit() and hoping for the best.
 
 
 # Installation
