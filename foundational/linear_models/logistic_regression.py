@@ -41,13 +41,6 @@ Key Differences from Linear Regression:
 3. Decision boundary creates binary classification
 4. Assumes data is linearly separable
 
-Assumptions:
-1. Binary outcome
-2. Independent observations
-3. Little or no multicollinearity
-4. Linear relationship between log-odds and features
-5. Large sample size
-
 """
 
 import numpy as np
@@ -79,9 +72,6 @@ class LogisticRegressor():
             
             self.weights -= self.lr * dw
             self.bias -= self.lr * db
-
-            cost = self._compute_cost(y, y_pred)
-            self.cost_history.append(cost)
     
     def predict_proba(self, X):
         linear_pred = np.dot(X, self.weights) + self.bias

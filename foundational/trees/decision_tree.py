@@ -1,3 +1,59 @@
+"""
+Decision Trees are supervised learning algorithms used for both classification and regression. They create a model that predicts the target by learning simple decision rules from the features in a tree-like structure.
+
+How it works:
+1. The Model:
+   - A hierarchical structure of nodes and edges
+   - Each internal node tests a feature against a threshold
+   - Each leaf node contains a prediction (class label or value)
+   - Predictions made by traversing from root to leaf based on feature values
+   - Binary tree structure: each node splits into two children (left ≤ threshold, right > threshold)
+
+2. Training Process (Recursive Partitioning):
+   - Start at root with all data
+   - For each node, while stopping criteria not met:
+     a) Find best feature and threshold for splitting
+     b) Split data into left (≤ threshold) and right (> threshold) subsets
+     c) Create child nodes with respective subsets
+     d) Recursively continue process on child nodes
+   - Create leaf node when stopping criteria met:
+     * Maximum depth reached
+     * Minimum samples for split not met
+     * All samples have same target value
+     * No more features to split on
+
+3. Finding Best Split:
+   - For classification, uses metrics like:
+     * Information Gain (using entropy)
+     * Gini Impurity
+   - Process:
+     * Try each feature and possible threshold
+     * Calculate metric before and after split
+     * Choose split maximizing improvement
+     * Information Gain = Entropy(parent) - WeightedAvg(Entropy(children))
+
+4. Prediction Process:
+   - Start at root node
+   - At each internal node:
+     * Compare feature value with threshold
+     * Go left if value ≤ threshold, right otherwise
+   - Return prediction when leaf node reached
+
+Key Features:
+1. Non-parametric (no assumptions about data distribution)
+2. Can handle both numerical and categorical data
+3. Naturally handles multi-class problems
+4. Can capture non-linear relationships
+5. Easy to interpret and visualize
+
+Hyperparameters:
+1. max_depth: Controls tree depth
+2. min_samples_split: Minimum samples needed for split
+3. min_samples_leaf: Minimum samples in leaf nodes
+4. max_features: Number of features to consider for best split
+
+"""
+
 import numpy as np
 from collections import Counter
 from utils.metrics.information_gain import information_gain
