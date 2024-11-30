@@ -32,11 +32,6 @@ Key hyperparameters:
 - Learning rate (α): Controls step size in gradient descent
 - Number of epochs: How many times to iterate through the data
 
-Assumptions:
-- Linear relationship between features and target
-- Features are independent
-- Errors are normally distributed
-- Homoscedasticity (constant error variance)
 """
 
 import numpy as np
