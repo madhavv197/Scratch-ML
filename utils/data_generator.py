@@ -4,7 +4,7 @@ import numpy as np
 from typing import Tuple, Dict, Union, Optional
 from dataclasses import dataclass
 import matplotlib.pyplot as plt
-
+from sklearn.datasets import fetch_openml
 
 @dataclass
 class DatasetInfo:
@@ -114,6 +114,19 @@ class MLDataGenerator:
         
         return X, y
     
+    def get_mnist(self) -> Tuple[np.array, np.array]:
+        """Get MNIST dataset as a numpy array"""
+        X, y = fetch_openml('mnist_784', version=1, return_X_y=True, as_frame=False)
+        X = X.astype('float32')
+
+        X = X / 255.0
+        y = y.astype('int32')
+        X_train, y_train = X[:60000], y[:60000]
+
+        X_test, y_test = X[60000:], y[60000:]
+        
+        return X_train, y_train, X_test, y_test
+
     def generate_all_datasets(self) -> Dict[str, Tuple[np.ndarray, np.ndarray]]:
         """Generate all types of datasets for testing different models"""
         datasets = {}
@@ -144,6 +157,10 @@ class MLDataGenerator:
         # SVM dataset
         datasets['svm'] = self.make_svm_data(
             DatasetInfo(name='svm', n_samples=1000, n_features=2))
+        
+        # MNIST dataset
+        datasets['mnist'] = self.get_mnist(
+            DatasetInfo(name='mnist', n_samples=1000, n_features=784))
         
         return datasets
 
