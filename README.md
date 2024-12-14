@@ -1,4 +1,4 @@
-![Banner](assets/banner.png)
+![Banner](assets/banner (2).png)
 
 
 # About
